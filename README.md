@@ -1,4 +1,4 @@
-![splitwise-ts-logo](splitwise-ts-logo-main.png)
+![splitwise-ts-logo](splitwise-ts-logo.png)
 
 # Splitwise Typescript
 
