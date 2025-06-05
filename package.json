@@ -1,6 +1,6 @@
 {
-  "name": "my-turborepo",
-  "private": true,
+  "name": "splitwise-ts",
+  "workspaces": ["packages/*"],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
