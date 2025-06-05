@@ -1,84 +1,82 @@
-# Turborepo starter
+![splitwise-ts-logo](splitwise-ts-logo.png)
 
-This Turborepo starter is maintained by the Turborepo core team.
+# Splitwise Typescript
 
-## Using this example
+A high-performance, fully typed SDK for integrating with Splitwise, designed for maximum speed and flexibility. This SDK is compatible with Web Workers, browsers, and Node.js, ensuring seamless usage across different environments. Built with TypeScript, it offers robust type safety and developer-friendly interfaces, making it the fastest and most reliable way to interact with Splitwise programmatically.
 
-Run the following command:
+## Features 🎉
+
+⚡ **Blazing Fast** – Optimized for performance across all supported environments.  
+🔄 **Multi-Platform Support** – Works on Web Workers, browsers, and Node.js  
+🛡️ **Fully Typed** – Provides complete TypeScript definitions.  
+🔗 **Seamless API Integration** – Simplifies interaction with Splitwise’s API.  
+📦 **Lightweight & Efficient** – Minimal dependencies to ensure a small footprint.
+
+Perfect for developers who need a reliable and efficient way to manage expenses and group transactions programmatically with Splitwise. 
+
+## 📦 Installation
+
+To install the SDK, use **npm**, **yarn**, or **pnpm**:
 
 ```sh
-npx create-turbo@latest
+# Using pnpm
+pnpm add splitwise-ts
+
+# Using npm
+npm install splitwise-ts
+
+# Using yarn
+yarn add splitwise-ts
 ```
 
-## What's inside?
+## 🚀 Usage
 
-This Turborepo includes the following packages/apps:
+To get started with `splitwise-ts`, you need to authenticate using OAuth2 and create a client instance to interact with the Splitwise API. 🧠🛠️📚
 
-### Apps and Packages
+### 1. Import the SDK 
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+```ts
+import { Client, OAuth2User } from 'splitwise-ts'
 ```
 
-### Develop
+### 2. Authenticate with OAuth2 
 
-To develop all apps and packages, run the following command:
+Create a new `OAuth2User` instance using your **client ID** and **client secret** from Splitwise:
 
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+```ts
+const user = new OAuth2User({
+  clientId: 'YOUR_CLIENT_ID',
+  clientSecret: 'YOUR_CLIENT_SECRET',
+})
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+> Replace `YOUR_CLIENT_ID` and `YOUR_CLIENT_SECRET` with your actual credentials from the Splitwise developer portal.
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+### 3. Request an Access Token 
 
+Before making API requests, you must obtain an access token:
+
+```ts
+await user.requestAccessToken().catch(console.error)
 ```
-npx turbo link
+
+This will request a new access token
+
+### 4. Create the Splitwise Client
+
+Once the user is authenticated, create a new `Client` instance using the authenticated `OAuth2User`:
+
+```ts
+const client = new Client(user)
 ```
 
-## Useful Links
+### 5. Make API Calls
 
-Learn more about the power of Turborepo:
+You can now make fully typed API calls. For example, to get the current authenticated user:
+```ts
+const response = await client.users.getCurrentUser().catch((error) => {
+  console.error('Error fetching user:', error)
+})
+```
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+You’ll get a response object containing the current user’s details.
