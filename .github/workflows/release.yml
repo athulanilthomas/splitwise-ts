@@ -14,22 +14,26 @@ jobs:
     permissions:
       contents: write
       packages: write
+    strategy:
+      matrix:
+        node-version: [20]
 
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Required for Changesets
+      
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
 
-      - name: Setup Node.js 20.x
+      - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
-          registry-url: 'https://registry.npmjs.org'
+          node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
 
       - name: Install Dependencies
         run: pnpm Install
