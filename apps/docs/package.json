@@ -1,5 +1,7 @@
 {
   "name": "docs",
+  "version": "1.0.0",
+  "private": "true",
   "scripts": {
     "dev": "vitepress dev content",
     "build": "vitepress build content",
