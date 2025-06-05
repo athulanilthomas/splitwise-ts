@@ -1,6 +1,5 @@
 {
   "name": "splitwise-ts",
-  "workspaces": ["packages/*", "docs/*"],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
