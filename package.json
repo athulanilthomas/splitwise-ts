@@ -10,7 +10,7 @@
     "@changesets/cli": "^2.29.4",
     "turbo": "^2.5.4"
   },
-  "packageManager": "pnpm@10",
+  "packageManager": "pnpm@10.11.1",
   "engines": {
     "node": ">=18"
   }
