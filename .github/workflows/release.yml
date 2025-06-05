@@ -14,6 +14,7 @@ jobs:
     permissions:
       contents: write
       packages: write
+      pull-requests: write # Added permission for pull requests
     strategy:
       matrix:
         node-version: [20]
