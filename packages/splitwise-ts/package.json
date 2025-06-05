@@ -1,7 +1,6 @@
 {
   "name": "splitwise-ts",
   "version": "1.0.0-alpha.0",
-  "private": true,
   "main": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": ["dist"],
