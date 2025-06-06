@@ -1,6 +1,6 @@
 # splitwise-ts
 
-## 1.0.0
+## 1.0.0-alpha.0
 
 ### Patch Changes
 
