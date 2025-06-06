@@ -1,6 +1,7 @@
 {
   "name": "splitwise-ts",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.0",
+  "description": "A typed, fast, flexible SDK for Splitwise written in TypeScript",
   "main": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
@@ -10,6 +11,11 @@
     ".": {
       "import": "./dist/index.mjs"
     }
+  },
+  "homepage": "https://athulanilthomas.github.io/splitwise-ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/athulanilthomas/splitwise-ts.git"
   },
   "scripts": {
     "build": "rslib build",
@@ -37,5 +43,6 @@
     "es-toolkit": "^1.31.0",
     "oauth4webapi": "^3.1.1",
     "ofetch": "^1.4.1"
-  }
+  },
+  "keywords": ["splitwise", "typescript", "sdk", "api-client", "splitwise-ts"]
 }
