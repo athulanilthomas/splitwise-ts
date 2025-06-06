@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "splitwise-ts",
   description: "Documentation for Splitwise SDK",
+  base: '/splitwise-ts/',
   lastUpdated: true,
   themeConfig: {
     logo: '/splitwise-ts-logo.png',
