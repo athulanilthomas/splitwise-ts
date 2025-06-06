@@ -6,11 +6,11 @@ A high-performance, fully typed SDK for integrating with Splitwise, designed for
 
 ## Features 🎉
 
-⚡ **Blazing Fast** – Optimized for performance across all supported environments.
-🔄 **Multi-Platform Support** – Works on Web Workers, browsers, and Node.js.
-🛡️ **Fully Typed** – Provides complete TypeScript definitions.
-🔗 **Seamless API Integration** – Simplifies interaction with Splitwise’s API.
-📦 **Lightweight & Efficient** – Minimal dependencies to ensure a small footprint.
+⚡ **Blazing Fast** – Optimized for performance across all supported environments  
+🔄 **Multi-Platform Support** – Works on Web Workers, browsers, and Node.js  
+🛡️ **Fully Typed** – Provides complete TypeScript definitions  
+🔗 **Seamless API Integration** – Simplifies interaction with Splitwise’s API  
+📦 **Lightweight & Efficient** – Minimal dependencies to ensure a small footprint
 
 Perfect for developers who need a reliable and efficient way to manage expenses and group transactions programmatically with Splitwise. 
 
