@@ -1,8 +1,8 @@
 # splitwise-ts
 
-## 1.1.0
+## 1.0.1-alpha.1
 
-### Minor Changes
+### Patch Changes
 
 - a11844f: Update documentation typo
 
