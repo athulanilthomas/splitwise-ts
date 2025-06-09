@@ -1,5 +1,11 @@
 # splitwise-ts
 
+## 1.1.0
+
+### Minor Changes
+
+- 2861ed5: Resolve issues on importing types
+
 ## 1.0.1-alpha.1
 
 ### Patch Changes
