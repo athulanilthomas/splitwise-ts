@@ -20,7 +20,7 @@ features:
     details: Provides complete TypeScript definitions
   - icon: 🔄
     title: Multi-Platform Support
-    details: Works on Web Workers, browsers, and Node.js
+    details: Works on Workers and Node.js
   - icon: 📦
     title: Lightweight & Efficient
     details: Minimal dependencies to ensure a small footprint

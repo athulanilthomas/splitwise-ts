@@ -2,12 +2,12 @@
 
 # Splitwise Typescript
 
-A high-performance, fully typed SDK for integrating with Splitwise, designed for maximum speed and flexibility. This SDK is compatible with Web Workers, browsers, and Node.js, ensuring seamless usage across different environments. Built with TypeScript, it offers robust type safety and developer-friendly interfaces, making it the fastest and most reliable way to interact with Splitwise programmatically.
+A high-performance, fully typed SDK for integrating with Splitwise, designed for maximum speed and flexibility. This SDK is compatible with Workers and Node.js, ensuring seamless usage across different environments. Built with TypeScript, it offers robust type safety and developer-friendly interfaces, making it the fastest and most reliable way to interact with Splitwise programmatically.
 
 ## Features 🎉
 
 ⚡ **Blazing Fast** – Optimized for performance across all supported environments  
-🔄 **Multi-Platform Support** – Works on Web Workers, browsers, and Node.js  
+🔄 **Multi-Platform Support** – Works on Workers and Node.js  
 🛡️ **Fully Typed** – Provides complete TypeScript definitions  
 🔗 **Seamless API Integration** – Simplifies interaction with Splitwise’s API  
 📦 **Lightweight & Efficient** – Minimal dependencies to ensure a small footprint  
