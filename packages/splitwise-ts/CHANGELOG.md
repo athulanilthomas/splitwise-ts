@@ -1,5 +1,11 @@
 # splitwise-ts
 
+## 1.1.1
+
+### Patch Changes
+
+- 51b7e28: Update readme and documentation
+
 ## 1.1.0
 
 ### Minor Changes
