@@ -2,7 +2,7 @@
   "name": "splitwise-ts",
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
+    "dev": "turbo run dev --filter=playground",
     "lint": "turbo run lint",
     "check-types": "turbo run check-types"
   },
