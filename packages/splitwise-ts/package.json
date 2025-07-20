@@ -1,10 +1,12 @@
 {
   "name": "splitwise-ts",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A typed, fast, flexible SDK for Splitwise written in TypeScript",
   "main": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
@@ -43,5 +45,11 @@
     "oauth4webapi": "^3.1.1",
     "ofetch": "^1.4.1"
   },
-  "keywords": ["splitwise", "typescript", "sdk", "api-client", "splitwise-ts"]
+  "keywords": [
+    "splitwise",
+    "typescript",
+    "sdk",
+    "api-client",
+    "splitwise-ts"
+  ]
 }
