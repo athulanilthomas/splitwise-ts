@@ -30,7 +30,7 @@ export async function rest<T extends Record<string | number, any>>({
     })
   }
 
-  const includeBody = (method === 'POST' || method === 'PUT') && !!requestBody
+  const includeBody = ['post', 'put'].includes(method.toLowerCase()) && !!requestBody
 
   const promise = fetcher(endpoint, {
     baseURL: baseUrl,
