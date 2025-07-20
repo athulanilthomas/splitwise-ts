@@ -1,5 +1,11 @@
 # splitwise-ts
 
+## 1.1.2
+
+### Patch Changes
+
+- 24deb51: Fixes an issue where the request body was not being correctly passed to the Splitwise client. This patch ensures the client receives and processes the body as expected.
+
 ## 1.1.1
 
 ### Patch Changes
