@@ -4,9 +4,7 @@
   "description": "A typed, fast, flexible SDK for Splitwise written in TypeScript",
   "main": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
@@ -22,7 +20,7 @@
     "build": "rslib build",
     "dev": "rslib build --watch",
     "check": "biome check --write",
-    "format": "biome format --write"
+    "lint": "biome format --write"
   },
   "devDependencies": {
     "@apidevtools/json-schema-ref-parser": "^11.7.2",
@@ -45,11 +43,5 @@
     "oauth4webapi": "^3.1.1",
     "ofetch": "^1.4.1"
   },
-  "keywords": [
-    "splitwise",
-    "typescript",
-    "sdk",
-    "api-client",
-    "splitwise-ts"
-  ]
+  "keywords": ["splitwise", "typescript", "sdk", "api-client", "splitwise-ts"]
 }
