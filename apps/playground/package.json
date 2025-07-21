@@ -1,0 +1,17 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "A playground for testing Splitwise TypeScript SDK",
+  "keywords": [],
+  "author": "",
+  "scripts": {
+    "dev": "npx listhen ./src/index.ts"
+  },
+  "dependencies": {
+    "h3": "^1.15.3",
+    "listhen": "^1.9.0",
+    "splitwise-ts": "workspace:*"
+  },
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.1"
+}
