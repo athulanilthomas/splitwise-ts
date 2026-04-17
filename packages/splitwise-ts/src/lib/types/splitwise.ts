@@ -292,9 +292,9 @@ export interface paths {
      * Add friends
      * @description Add multiple friends at once.
      *
-     *     For each user, if the other user does not exist, you must supply `friends__{index}__first_name`.
+     *     For each user, if the other user does not exist, you must supply `users__{index}__first_name`.
      *
-     *     **Note**: user parameters must be flattened into the format `friends__{index}__{property}`, where
+     *     **Note**: user parameters must be flattened into the format `users__{index}__{property}`, where
      *     `property` is `first_name`, `last_name`, or `email`.
      *
      */
@@ -2833,10 +2833,10 @@ export interface operations {
     requestBody: {
       content: {
         /** @example {
-         *       "friends__0__first_name": "Alan",
-         *       "friends__0__last_name": "Turing",
-         *       "friends__0__email": "alan@example.org",
-         *       "friends__1__email": "existing_user@example.com"
+         *       "users__0__first_name": "Alan",
+         *       "users__0__last_name": "Turing",
+         *       "users__0__email": "alan@example.org",
+         *       "users__1__email": "existing_user@example.com"
          *     } */
         'application/json': {
           [key: string]: string
