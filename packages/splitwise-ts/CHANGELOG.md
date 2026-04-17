@@ -1,5 +1,11 @@
 # splitwise-ts
 
+## 1.1.3
+
+### Patch Changes
+
+- Updated the spec file to reflect the latest documentation.
+
 ## 1.1.2
 
 ### Patch Changes
