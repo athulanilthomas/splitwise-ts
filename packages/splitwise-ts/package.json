@@ -32,7 +32,7 @@
     "@rslib/core": "^0.4.0",
     "@types/node": "^22.8.1",
     "consola": "^3.4.0",
-    "handlebars": "^4.7.8",
+    "handlebars": "^4.7.9",
     "openapi-typescript": "^7.4.2",
     "openapi-typescript-helpers": "^0.0.15",
     "pathe": "^1.1.2",
