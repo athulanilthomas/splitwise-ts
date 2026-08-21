@@ -1,5 +1,3 @@
-import type { TokenEndpointResponse } from 'oauth4webapi'
-
 export type OAuthCredentials = {
   /**
    * The consumer key obtained from the Splitwise dashboard.
@@ -18,16 +16,15 @@ export type UseAuthResponse = {
   access_token: string
 }
 
-export abstract class AuthClient {
+export interface AuthClient {
   /**
    * Getter for retrieving access token.
    */
-  abstract get accessToken(): string | null
+  readonly accessToken: string | null
 
   /**
    * Requests an access token from the authentication provider.
-   * @abstract
-   * @returns {Promise<TokenEndpointResponse>} - A promise that resolves with the token endpoint response.
+   * @returns A promise that resolves with the token endpoint response.
    */
-  abstract requestAccessToken(): Promise<UseAuthResponse>
+  requestAccessToken(): Promise<UseAuthResponse>
 }

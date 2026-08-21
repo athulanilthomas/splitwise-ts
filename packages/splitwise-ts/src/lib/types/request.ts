@@ -8,6 +8,6 @@ export type RestOptions = {
   endpoint: string
   params?: Record<string, any>
   requestBody?: Record<string, any>
-  method: string
+  method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'get' | 'post' | 'put' | 'delete' | 'patch'
   baseUrl: string
 }

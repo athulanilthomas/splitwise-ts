@@ -31,6 +31,14 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Generated files (regenerated from OpenAPI spec during build)
+packages/splitwise-ts/src/lib/core/client.ts
+packages/splitwise-ts/src/lib/types/splitwise.ts
+
+# Sub-package lockfiles (only root lockfile should exist in pnpm workspace)
+packages/*/package-lock.json
+packages/*/pnpm-lock.yaml
+
 # Misc
 .DS_Store
 *.pem

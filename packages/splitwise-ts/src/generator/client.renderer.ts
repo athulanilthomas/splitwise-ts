@@ -8,7 +8,7 @@ handlebars.registerHelper('generateImport', (items, moduleName) => {
 handlebars.registerHelper('formatParams', (params) => JSON.stringify(params, null, 2))
 
 handlebars.registerHelper('arguments', (id, args, isParamsPresent, isRequestBodyPresent) => {
-  const params = args.map((content: string) => `${content}: string`)
+  const params = args.map((arg: { name: string; tsType: string }) => `${arg.name}: ${arg.tsType}`)
 
   if (isParamsPresent) params.push(`params: OperationQueryParams<${id}>`)
   if (isRequestBodyPresent) params.push(`request_body: OperationRequestBodyContent<${id}>`)

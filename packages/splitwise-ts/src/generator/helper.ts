@@ -15,12 +15,17 @@ type Spec = OpenAPI3 & {
   info: Record<string, any>
 }
 
+type ParamWithType = {
+  name: string
+  tsType: string
+}
+
 type ClassDefinitions = Record<
   string,
   {
     functions: {
       id: string
-      args: string[]
+      args: ParamWithType[]
       isRequestBodyPresent: boolean
       isQueryParamsPresent: boolean
       method: keyof PathItemObject
@@ -34,8 +39,20 @@ type Prerequisites = {
   operations: string[]
 }
 
-function extractParams(arr: any[]) {
-  return arr?.map((param) => param?.name) ?? []
+const SCHEMA_TYPE_TO_TS: Record<string, string> = {
+  integer: 'number',
+  number: 'number',
+  string: 'string',
+  boolean: 'boolean',
+}
+
+function extractParams(arr: ParameterObject[]): ParamWithType[] {
+  return (
+    arr?.map((param) => ({
+      name: param?.name ?? '',
+      tsType: SCHEMA_TYPE_TO_TS[(param?.schema as Record<string, any>)?.type as string] ?? 'string',
+    })) ?? []
+  )
 }
 
 function isRequestBodyPresent(reqBody: OperationObject['requestBody']) {
@@ -55,21 +72,25 @@ function generatePrerequisites(paths: PathsObject | undefined, tagCollection: Ta
     }
   }, {})
 
+  const httpMethods = new Set(['get', 'put', 'post', 'delete', 'options', 'head', 'patch', 'trace'])
+
   Object.keys(paths).forEach((pathKey) => {
     const endpointPath = paths[pathKey] as PathItemObject
 
     Object.keys(endpointPath).forEach((methodKey) => {
+      if (!httpMethods.has(methodKey)) return
+
       const method = endpointPath[methodKey as keyof PathItemObject] as OperationObject & Record<string, any>
       const { operationId, parameters: params, requestBody, tags } = method
 
-      if (!operationId) return new Error('No operation id')
+      if (!operationId) throw new Error(`No operationId found for path: ${pathKey} method: ${methodKey}`)
 
       const parameters = endpointPath['parameters'] || params
-      const queryVariables: string[] = extractParams(
+      const queryVariables = extractParams(
         parameters?.filter((x) => 'in' in x && x.in === 'query') as ParameterObject[],
       )
       const pathObject = (parameters?.filter((x) => 'in' in x && x.in === 'path') as ParameterObject[]) ?? []
-      const pathVariables: string[] = extractParams(pathObject)
+      const pathVariables = extractParams(pathObject)
 
       const argComments = pathObject.map((path) => ({
         name: path.name?.trim(),
@@ -80,7 +101,7 @@ function generatePrerequisites(paths: PathsObject | undefined, tagCollection: Ta
 
       operationIds.push(operationId)
 
-      if (!tags?.length) throw 'No tags found'
+      if (!tags?.length) throw new Error(`No tags found for operation: ${operationId}`)
 
       const tag = tags[0].toLowerCase()
 
