@@ -40,16 +40,6 @@
         },
         "useFragmentSyntax": "error"
       },
-      "nursery": {
-        "useSortedClasses": {
-          "fix": "safe",
-          "level": "warn",
-          "options": {
-            "attributes": ["classList"],
-            "functions": ["cn", "clsx", "cva", "tw"]
-          }
-        }
-      },
       "suspicious": {
         "noExplicitAny": "off",
         "noConsoleLog": "error"
@@ -58,22 +48,5 @@
   },
   "organizeImports": {
     "enabled": true
-  },
-  "overrides": [
-    {
-      "include": [
-        "app/**/{layout,page,route}.tsx",
-        "tailwind.config.{js,ts,cjs,mjs}",
-        "postcss.config.{js,ts,cjs,mjs}"
-      ],
-      "linter": {
-        "rules": {
-          "style": {
-            "noDefaultExport": "error"
-          }
-        }
-      },
-      "ignore": ["*.template.ts"]
-    }
-  ]
+  }
 }

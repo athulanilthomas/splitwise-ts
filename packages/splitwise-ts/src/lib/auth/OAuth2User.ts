@@ -11,7 +11,7 @@ import type { AuthorizationServer, Client, ResponseBodyError } from 'oauth4webap
 import type { AuthClient, OAuthCredentials, UseAuthResponse } from '../types/auth'
 
 export class OAuth2User implements AuthClient {
-  protected token?: string
+  #token?: string
   #options?: OAuthCredentials
 
   constructor(credentials: OAuthCredentials) {
@@ -19,7 +19,7 @@ export class OAuth2User implements AuthClient {
   }
 
   public get accessToken(): string | null {
-    return this.token ?? null
+    return this.#token ?? null
   }
 
   async requestAccessToken(): Promise<UseAuthResponse> {
@@ -38,8 +38,8 @@ export class OAuth2User implements AuthClient {
     try {
       const response = await clientCredentialsGrantRequest(as, client, clientAuth, params)
       const token = await processClientCredentialsResponse(as, client, response)
-      this.token = token.access_token
-      return { access_token: this.token }
+      this.#token = token.access_token
+      return { access_token: this.#token }
     } catch (e: unknown) {
       const responseError = e as ResponseBodyError
       const cause = responseError?.error

@@ -25,7 +25,7 @@ export async function rest<T extends Record<string | number, any>>({
   if (!accessToken) {
     throw createError({
       cause: 'auth',
-      code: 402,
+      code: 401,
       message: 'Access token is missing',
     })
   }

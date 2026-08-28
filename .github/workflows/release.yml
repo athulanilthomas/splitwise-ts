@@ -17,17 +17,18 @@ jobs:
     permissions:
       contents: write
       packages: write
-      pull-requests: write # Added permission for pull requests
+      pull-requests: write
+      id-token: write # Required for npm Trusted Publishing (OIDC)
     strategy:
       matrix:
-        node-version: [20]
+        node-version: [22] # Node 22.14+ required for trusted publishing
 
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Required for Changesets
-      
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -38,6 +39,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org' # Required for OIDC detection
 
       - name: Install Dependencies
         run: pnpm install
@@ -52,4 +54,3 @@ jobs:
           publish: pnpm changeset publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
