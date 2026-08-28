@@ -1,6 +1,7 @@
 {
   "name": "playground",
   "version": "1.0.1",
+  "private": true,
   "description": "A playground for testing Splitwise TypeScript SDK",
   "keywords": [],
   "author": "",
