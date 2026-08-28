@@ -41,7 +41,7 @@
     "openapi-typescript-helpers": "^0.0.15",
     "pathe": "^1.1.2",
     "typescript": "^5.6.3",
-    "vitest": "^2.1.9"
+    "vitest": "^3.2.6"
   },
   "dependencies": {
     "es-toolkit": "^1.31.0",
